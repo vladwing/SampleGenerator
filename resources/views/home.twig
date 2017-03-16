@@ -1,0 +1,35 @@
+{% extends 'one-panel.twig' %}
+{% block panel %}
+  <!-- <a href="/texts/new" class="btn btn-raised btn-success">Create new text</a> -->
+  {% if samples %}
+    <table class="table">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th></th>
+          <th>Sample name</th>
+          <th>Green range</th>
+          <th>Red range</th>
+        </tr>
+      </thead>
+      <tbody id="contentArea" class="clusterize-content">
+        {% for sample in samples %}
+          <tr class="clusterize-no-data">
+            <td>{{loop.index0}}</td>
+            <td>
+            <a class="btn btn-xs btn-info" href="{{sample.getUrl('enable')}}">{{sample.getText("enable")}}</a>
+            {% if sample.isEnabled %}
+            <a class="btn btn-xs btn-info" href="{{sample.getUrl('red')}}">{{sample.getText("red")}}</a>
+            {% endif %}
+            </td>
+            <td class="{{sample.getColor()}}">{{sample.name}}</td>
+            <td>{{sample.green.min}} ... {{sample.green.max}}</td>
+            <td>{{sample.red.min}} ... {{sample.red.max}}</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  {% else %}
+    <h3>Somehow you forgot to add alerts? Add some alerts please!</h3>
+  {% endif %}
+{% endblock %}

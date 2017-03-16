@@ -1,0 +1,17 @@
+{% extends 'base.twig' %}
+{% block title %}<title>text</title>{% endblock %}
+{% block content %}
+<div class="content">
+  <div class="row">
+    <div class="col-lg-{{panel.size}} col-lg-offset-{{panel.offset}}">
+      <div class="panel panel-{{panel.color}}">
+        <div class="panel-heading">{{panel.title}}</div>
+        <div class="panel-body">
+          {% block panel %}
+          {% endblock %}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
