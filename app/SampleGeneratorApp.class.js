@@ -89,6 +89,7 @@ module.exports = class SampleGeneratorApp extends imports.App{
 
                 sampleGenerator.generateSamples((err, result) => {
                     if (err) {
+                        this.logger.error('Sample Generator error:', err);
                         return sampleGenerator.emit('error', err);
                     }
                     return sampleGenerator.emit('finished');
