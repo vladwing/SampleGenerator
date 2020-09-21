@@ -11,7 +11,7 @@
     "express": "^4.15.2",
     "http-status-codes": "^1.1.6",
     "json-stringify-safe": "^5.0.1",
-    "mysql": "^2.13.0",
+    "mysql": "^2.14.0",
     "twig": "^1.10.4",
     "uniqid": "^4.1.1"
   }
